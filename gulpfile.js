@@ -6,6 +6,8 @@ const spritesmith = require('gulp.spritesmith');
 const rimraf = require('rimraf');
 const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+
 
 /* -------- Server  -------- */
 gulp.task('server', function () {
@@ -19,8 +21,18 @@ gulp.task('server', function () {
     gulp.watch('build/**/*').on('change', browserSync.reload);
 });
 
+/* -------- Sourcemap  -------- */
+gulp.task('javascript', function () {
+    gulp.src('src/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(plugin1())
+        .pipe(plugin2())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist'));
+});
+
 /* -------- Autoprefixer  -------- */
-gulp.task('css:auto', () =>
+gulp.task('css:autoprefixer', () =>
     gulp.src('build/css/main.min.css')
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
@@ -41,9 +53,11 @@ gulp.task('templates:compile', function buildHTML() {
 /* ------------ Styles compile ------------- */
 gulp.task('styles:compile', function () {
     return gulp.src('source/styles/main.scss')
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))
+        .pipe(sourcemaps.write())
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('build/css'));
 });

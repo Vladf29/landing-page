@@ -26,7 +26,7 @@
             background-color: #424242;
         }
 
-        &::last-child:after{
+        &:last-child:after{
             display: none;
         }
     }

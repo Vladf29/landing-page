@@ -1,0 +1,27 @@
+.title{
+    margin-bottom: 65px;
+    text-align: center;
+
+    &__header{
+        margin: 0;
+        font-size: 2.25rem;
+        line-height: 1;
+    }
+
+    &__text{
+        font-size: 1.25rem;
+    }
+
+    &--with-bottom-line{
+        position: relative;
+
+        &::after{
+            content: '';
+            @include centerer-x();
+            bottom: -16px;
+            width:47px;
+            height: 5px;
+            background-color: #424242;
+        }
+    }
+}

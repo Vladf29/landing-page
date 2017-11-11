@@ -58,7 +58,6 @@ $spritesheet-height: 160px;
 $spritesheet-image: '../images/sprite.png';
 $spritesheet-sprites: ($book, $like, $message, $work-item, );
 $spritesheet: (167px, 160px, '../images/sprite.png', $spritesheet-sprites, );
-
 // The provided mixins are intended to be used with the array-like variables
 //
 // .icon-home {
@@ -94,7 +93,7 @@ $spritesheet: (167px, 160px, '../images/sprite.png', $spritesheet-sprites, );
 @mixin sprite-position($sprite) {
   $sprite-offset-x: nth($sprite, 3);
   $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
+  background-position: $sprite-offset-x $sprite-offset-y;
 }
 
 @mixin sprite-image($sprite) {

@@ -1,6 +1,11 @@
 .approach {
     padding: 86px 0 94px;
     background-color: #f3f3f3;
+
+    @media (max-width:985px){
+        padding: 25px 0;
+    }
+
     &__list {
         margin: 0;
         padding: 0;
@@ -12,25 +17,44 @@
         box-shadow: -1px -1px 10px 1px rgba(214, 214, 214, 1);
         color: #424242;
         background-color: #fff;
+        display: flex;
         &:nth-child(2n) {
             display: flex;
             flex-direction: row-reverse;
             text-align: right;
+            @media (max-width:985px) {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+            }
             .approach__text {
-                padding: 70px 90px;
+                // padding: 70px 90px;
+                // @media (max-width: 985px) {}
             }
             .approach__step {
                 right: auto;
                 left: -52px;
             }
         }
+        @media (max-width:985px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
     &__image {
         position: relative;
         max-width: 340px;
-        // max-height: 236px;
+        max-height: 236px;
         display: inline-block;
         vertical-align: top;
+        // @media (max-width: 985px) {
+        //     max-width: calc(340px /1.5);
+        //     max-height: calc(236px / 1.5);
+        // }
+        @media (max-width:700px){
+            margin: auto;
+            display: block;
+        }
     }
     &__picture {
         display: block;
@@ -38,11 +62,16 @@
         height: 100%;
     }
     &__text {
-        display: inline-block;
-        vertical-align: top;
+        // display: inline-block;
+        // vertical-align: top;
         width: 64%;
         font-size: 0.875rem;
         padding: 70px 70px 55px 90px;
+        @media (max-width: 985px) {
+            width:100%;
+            text-align: center;
+            padding: 25px;
+        }
     }
     &__step {
         @include centerer-y();
@@ -64,18 +93,17 @@
             line-height: 1;
             color: #fff;
         }
+        @media (max-width:985px) {
+            display: none;
+        }
     }
-
-    &__title{
+    &__title {
         margin-bottom: 6px;
         font-size: 1.125rem;
         font-weight: bold;
-
     }
-
-    &__description{
+    &__description {
         margin: 0;
         line-height: 1.5;
-        
     }
 }

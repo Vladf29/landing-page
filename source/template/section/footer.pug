@@ -1,0 +1,21 @@
+- var linkItems = ['facebook-official','twitter','google-plus','linkedin']
+
+footer.footer
+    .footer__top
+        .container
+            .footer__title Get in touch
+            .footer__links
+                  each item in linkItems
+                    a.footer__social(href="#")
+                        i(class='fa fa-' + item aria-hidden="true")
+                            span.visually-hidden=item
+            
+            .footer__text Elit esse reprehenderit culpa labore in incididunt.
+            form(action='#' method='post')
+                .footer__field
+                    input.footer__input(type='email' placeholder='Email Address')
+                button(type='submit').button Subscript
+
+    .footer__bottom
+        .footer__copy
+            Aliqua dolor culpa minim labore culpa do.Labore culpa exercitation irure id reprehenderit
